@@ -1,0 +1,266 @@
+
+<div class="appContent ng-scope" >
+
+	<section layout="row" flex>
+
+		<div id="searchbox" class="searchboxContainer visible"  ng-mouseleave="leaveSuggestion()">
+
+			<div class="searchButtonContainer">
+				<md-button class="md-icon-button searchButton" aria-label="Eat cake">
+					<i class="material-icons">menu</i>
+					<md-tooltip md-direction="bottom">
+						Menú
+					</md-tooltip>
+				</md-button>	
+			</div>
+
+			<div class="searchInput">
+				<input type="text" ng-blur="lostFocusSearch()" name="searchMain" ng-model="search" ng-focus="searchSuggestions()" ng-change="searchSuggestions()"  placeholder="Busca {{categorias[0]}}, {{categorias[1]}} o cualquier cosa :)">
+			</div>
+
+			<div class="searchButtonContainer">
+				<md-button class="md-icon-button searchButton" aria-label="Eat cake" ng-click="toggleLeft()">
+					<i class="material-icons icoSearch">search</i>
+					<md-tooltip md-direction="bottom">
+						Buscar
+					</md-tooltip>
+				</md-button>	
+			</div>
+
+			<div class="searchButtonContainer search">
+				<md-button class="md-icon-button searchButton" aria-label="Eat cake" ng-click="circle()">
+					<i class="material-icons icoMostSearched">loyalty</i>
+					<md-tooltip md-direction="bottom">
+						Lo más buscados
+					</md-tooltip>
+				</md-button>	
+			</div>
+
+			<div id="searchSuggestions" class="searchSuggestions noVisible">
+
+				<div class="suggestion" ng-click="searchProduct(item.id, item.name)" ng-mouseover="overSuggestion()" ng-repeat="item in resultSuggestions track by $index">
+					
+					<div class="suggestionImg">
+						<img src="{{item.img}}">
+					</div>
+
+					<div class="suggestionDescription">
+						<p>{{item.name}} (98 resultados)</p>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div> 
+
+		<md-sidenav class="md-sidenav-left" md-component-id="left" md-disable-backdrop disableClose="true"   md-whiteframe="4">
+
+			<div class="fullHeight"  ng-controller="childSearchNavController">
+				<md-toolbar class="md-theme-indigo toolbarSearch">
+
+					<div id="searchboxNav" class="searchboxContainer visible" ng-mouseleave="leaveSuggestion()">				
+
+						<div class="searchInput">
+							<input type="text" name="searchMain" ng-model="search" ng-focus="searchSuggestions()" ng-change="searchSuggestions()"  placeholder="Buscar...">
+						</div>
+
+						<div class="searchButtonContainer">
+							<md-button class="md-icon-button searchButton" aria-label="Eat cake" ng-click="searchData()">
+								<i class="material-icons icoSearch">search</i>
+								<md-tooltip md-direction="bottom">
+									Buscar
+								</md-tooltip>
+							</md-button>	
+						</div>
+
+						<div class="searchButtonContainer search">
+							<md-button class="md-icon-button searchButton" id="filterButton" aria-label="Eat cake" ng-click="filters()">
+								<i class="material-icons icoFilter">tune</i>
+								<md-tooltip md-direction="bottom">
+									{{filterStatus}}
+								</md-tooltip>
+							</md-button>	
+						</div>
+
+					</div> 
+
+				</md-toolbar>
+
+				<md-content class="searchFilter noMargin" layout-margin>
+
+					<div id="resultDetail" class="marginShadow md-whiteframe-2dp  noVisible">
+					</div>
+
+					<div id="filter" class="filterContainer marginShadow md-whiteframe-2dp  noVisible">
+
+						<div class="filterCorpse md-whiteframe-2dp">
+							<md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndexFilter">
+								<md-tab label="Valoración" >
+									<md-content class="md-padding contentFilter">
+										<div class="rankItem">
+											<p>Vendedor</p>
+											<div class="stars">
+
+												<i class="material-icons rankStar srankStar" ng-click="srankStar(1)" id="srankStar1" ng-model="srankStar1">star</i>
+												<i class="material-icons rankStar srankStar" ng-click="srankStar(2)" id="srankStar2" ng-model="srankStar2">star</i>
+												<i class="material-icons rankStar srankStar" ng-click="srankStar(3)" id="srankStar3" ng-model="srankStar3">star</i>
+												<i class="material-icons rankStar srankStar" ng-click="srankStar(4)" id="srankStar4" ng-model="srankStar4">star</i>
+												<i class="material-icons rankStar srankStar" ng-click="srankStar(5)" id="srankStar5" ng-model="srankStar5">star</i>
+
+											</div>	
+										</div>
+
+										<div class="rankItem">
+											<p>Producto</p>
+											<div class="stars">
+
+												<i class="material-icons rankStar prankStar" id="prankStar1" ng-click="prankStar(1)" ng-model="prankStar1">star</i>
+												<i class="material-icons rankStar prankStar" id="prankStar2" ng-click="prankStar(2)" ng-model="prankStar2">star</i>
+												<i class="material-icons rankStar prankStar" id="prankStar3" ng-click="prankStar(3)" ng-model="prankStar3">star</i>
+												<i class="material-icons rankStar prankStar" id="prankStar4" ng-click="prankStar(4)" ng-model="prankStar4">star</i>
+												<i class="material-icons rankStar prankStar" id="prankStar5" ng-click="prankStar(5)" ng-model="prankStar5">star</i>
+
+											</div>	
+										</div>
+
+									</md-content>
+								</md-tab>
+								<md-tab label="Precio/Pago">
+									<md-content class="md-padding contentFilter">
+
+										<p>Rango de precio</p>
+										<rzslider rz-slider-model="sliderPrice.min" rz-slider-high="sliderPrice.max" rz-slider-options="sliderPrice.options"></rzslider>
+
+										<div class="filterPriceOptions">
+											<md-checkbox ng-model="filter.ce" aria-label="Checkbox">
+												Servicio contraentrega
+											</md-checkbox>
+
+											<md-checkbox ng-model="filter.negociable" aria-label="Checkbox">
+												Negociable
+											</md-checkbox>
+
+										</div>
+
+									</md-content>
+								</md-tab>
+								<md-tab label="Ubicación">
+									<md-content class="md-padding contentFilter locationRank">
+										<div class="">
+											<h3 class="titleLocationFilter">Buscar articulos en...</h3>
+
+											<p>{{sliderRank.value}}km a la redonda</p>
+
+											<rzslider rz-slider-model="sliderRank.value"  rz-slider-options="sliderRank.options"></rzslider>
+
+											<div class="topSeparator">
+												<md-checkbox ng-model="filter.location" aria-label="Checkbox">
+													Toda la ciudad (Cali)
+												</md-checkbox>
+											</div>
+
+										</div>
+									</md-content>
+								</md-tab>
+							</md-tabs>
+
+							<div class="fullwidth centered filterButtons">
+
+								<md-button ng-click="deleteFilter()" class="md-accent brandColor">
+									cancelar
+								</md-button>
+
+								<md-button ng-click="applyFilter()" class="md-accent brandColor">
+									aplicar
+								</md-button>
+
+							</div>
+						</div>
+						
+
+						<div class="customBackdrop">
+							
+						</div>
+					</div>
+
+					<div id="results" class="noMargin sidenavResults">
+
+						<div class="resultContainer visible" ng-repeat="item in productsResults | resultFilter: applyingFilter:prankStarValue:srankStarValue:sliderPriceMin:sliderPriceMax:sliderRankValue: filter.negociable:filter.ce">
+
+							<div class="resultInfo">
+								<div class="resultTitle">
+									<span>{{item.productName}}</span>
+								</div>
+								
+								<div class="resultValoration">
+									<div ng-repeat="star in item.sellerStars track by $index" class="starContainer">
+										<i class="material-icons rankStarPresent" ng-if="star==-1" >star_border</i>
+										<i class="material-icons rankStarPresent" ng-if="star==0" >star_half</i>
+										<i class="material-icons rankStarPresent" ng-if="star==1" >star</i>
+									</div>
+									<p class="valorationDescription">({{item.sellerValoration}})</p>
+									
+								</div>
+								
+								<div class="resultDescription">
+									<h2 class="resultPrice">$ {{item.price}}</h2>
+								</div>
+								
+								<div class="resultActions">
+									
+								</div>
+							</div>
+
+							<div class="resultImg">
+								<img src="{{item.img}}" alt="">
+							</div>
+							
+						</div>			
+					</div>
+
+
+
+				</md-content>
+
+			</div>
+
+		</md-sidenav>
+
+
+		<div ng-controller="childChatController" class="ng-scope">
+			<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right" >
+
+				<md-toolbar class="md-theme-light">
+					<h1 class="md-toolbar-tools">Sidenav Right</h1>
+				</md-toolbar>
+				<md-content  layout-padding>
+					<form>
+						<md-input-container>
+							<label for="testInput">Test input</label>
+							<input type="text" id="testInput" ng-model="chatInput" md-autofocus>
+						</md-input-container>
+					</form>
+					<md-button ng-click="close()" class="md-primary">
+						Close Sidenav Right
+					</md-button>
+
+				</md-content>
+
+			</md-sidenav>
+		</div>
+
+
+
+		<md-content flex>
+
+
+
+		</md-content>
+
+	</section>
+
+
+	<div id="map" class="mapas"></div>
+
+</div>

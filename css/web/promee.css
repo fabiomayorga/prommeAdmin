@@ -1,0 +1,536 @@
+body{
+	overflow-x: hidden;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;  
+	height: 6px; 
+}
+
+::-webkit-scrollbar-track
+{
+	background: rgba(0, 0, 0, 0.06);
+}
+
+::-webkit-scrollbar-thumb
+{
+	background: rgba(0, 0, 0, 0.33);
+}
+
+md-sidenav{
+	width:400px;
+}
+
+.brandColor{
+	color: rgb(245,0,0) !important;
+}
+
+.brandBackground{
+	background-color: rgb(245,0,0) !important;
+}
+
+#map {
+	height: 100%;
+}
+
+.noMargin{
+	margin:0px !important;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.contentFilter{
+	padding: 16px 16px 0px 16px;
+}
+
+.fullWidth{
+	width: 100%;
+}
+
+.fullHeight{
+	height:100%; 
+}
+
+.centered{
+	text-align: center;
+}
+
+.topSeparator{
+	margin-top: 10px;
+}
+
+.titleLocationFilter{
+
+}
+
+/*css para componentes*/
+
+/*css rzslider*/
+
+.rzslider .rz-tick.rz-selected {
+	background: #bb0808;
+}
+
+.rz-active{
+	background-color: rgb(245,0,0) !important;
+}
+
+.rzslider .rz-pointer {
+	background-color: rgb(245,0,0) !important;
+}
+
+.rzslider .rz-selection {
+	z-index: 2;
+	background: rgb(245,0,0) !important;
+	border-radius: 2px;
+}
+
+.rzslider{
+	outline: none !important;
+}
+
+.rz-pointer{
+	outline: none !important;
+}
+
+
+.rzslider .rz-pointer.rz-active:after {
+	background-color: white !important;
+}
+
+
+/*fin css rzslider*/
+
+/*fin css para componentes*/
+
+/* css para moviles */
+@media (max-width: 600px) {
+	.searchboxContainer{
+		width: calc(100% - 16px) !important;
+		margin: 8px !important;
+	}
+}
+/*fin css para moviles*/
+
+/*Buscador*/
+
+.filterApplied{
+	color: rgb(245,0,0) !important;
+}
+
+.suggestion{
+	outline: none !important;
+	cursor: pointer;
+}
+
+.suggestion:hover{
+	background: red;
+	color: white;
+	font-weight: 900;
+}
+
+.suggestion:first-child{
+	border-top: 1px solid #80808038;
+}
+
+.suggestionImg{
+	height: 40px;
+	width: 40px;
+	float: left;
+	padding: 5px;
+}
+
+.suggestionImg img{
+	max-height: 100%;
+}
+
+.suggestionDescription{
+	width: calc(100% - 50px);
+	float: right;
+}
+
+.searchboxContainer{
+	width: 550px;
+	display: inline-block;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.02);
+	transition-property: background,box-shadow;
+	transition-duration: 0.3s;
+	background: #fff;
+	border-radius: 2px;
+	position: absolute;
+	z-index: 10;
+	margin-top: 8px;
+	margin-left: calc(50% - 255px);
+}
+
+.searchButtonContainer{
+	height: 48px;
+	display: grid;
+	width: 54px;
+	float: left;
+}
+
+.search::after{
+	content: "";
+	position: absolute;
+	top: 10px;
+	border-left: 1px solid #ddd;
+	height: 28px;
+}
+
+
+.searchButton{
+	display: grid;
+	margin: auto !important;
+	border-radius: 0% !important;
+}
+
+.searchInput{
+	width: calc(100% - 162px);
+	height: 48px;
+	float: left;
+	position: relative;
+	display: grid;
+	font-size: 14px;
+}
+
+.searchInput input, input:focus{
+	border:0px !important;
+	outline: none;
+	width: 100%;
+}
+
+md-content{
+	
+}
+
+.suggestion{
+	height: 50px;
+}
+
+/*fin Buscador*/
+
+.appContent{
+	width: 100%;
+	height: 100%;
+}
+
+.appContent,section{
+	width: 100%;
+}
+
+.searchSuggestions{
+	width:100%;
+	margin-top: 48px;
+} 
+
+
+.vista{
+	height: 100%;
+}
+
+/* do not group these rules */
+*::-webkit-input-placeholder {
+	color: grainsboro;
+}
+*:-moz-placeholder {
+	/* FF 4-18 */
+	color: grainsboro;
+}
+*::-moz-placeholder {
+	/* FF 19+ */
+	color: grainsboro;
+}
+*:-ms-input-placeholder {
+	/* IE 10+ */
+	color: grainsboro;
+}
+
+@keyframes fadein {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+@keyframes fadeOut {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+
+.noVisible{
+	display:none;
+	animation: fadeOut 0.5s;
+}
+
+.visible{
+	-webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: fadein 0.5s; /* Firefox < 16 */
+	-ms-animation: fadein 0.5s; /* Internet Explorer */
+	-o-animation: fadein 0.5s; /* Opera < 12.1 */
+	animation: fadein 0.5s;
+}
+
+.fade.ng-enter {
+	transition:0.5s linear all;
+	opacity:0;
+}
+
+.fade.ng-enter.ng-enter-active {
+	opacity:1;
+}
+
+.fade.ng-leave {
+	transition:0.5s linear all;
+	opacity:1;
+}
+.fade.ng-leave.ng-leave-active {
+	opacity:0;
+}
+/*buscador barra lateral izquierda*/
+.toolbarSearch{
+	padding: 0px 8px;
+}
+
+.toolbarSearch .searchboxContainer{
+	width:100%;
+	position: initial;
+	margin-left: 0px !important;
+}
+
+.toolbarSearch .search::after {
+	content: "";
+	position: absolute;
+	top: 12px;
+	border-left: 1px solid #ddd;
+	height: 40px;
+}
+
+.toolbarSearch .searchInput{
+	width : calc(100% - 109px) !important;
+	padding: 0px 8px;
+}
+
+.tollbarSearch .icoFilter{
+	color: #1f2b2f;
+}
+
+#filterButton:hover{
+	background-color: rgba(0,0,0,0.12);
+}
+
+.filterApplied:hover{
+	background-color: white	!important;
+}
+
+
+.filterApplied i{
+	color: rgb(245,0,0);
+}
+
+
+.icoMostSearched{
+	color: red;
+}
+
+.icoFilter{
+	color: #1f2b2f;
+}
+
+.icoSearch{
+	color: #00b4ff;
+}
+
+.rankStar{
+	font-size: 14px;
+	cursor:pointer;
+	outline: none !important;
+	float: left;
+}
+
+.starContainer{
+	display: inline-grid;
+}
+
+.valorationDescription{
+	float: right;
+	margin: 0;
+	color: #ff8767;
+	white-space: nowrap;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.rankStar:hover{
+	color: rgba(255, 87, 34, 0.71);
+	outline: none !important;
+}
+
+
+.rankStarPresent{
+	font-size: 14px;
+	outline: none !important;
+	float: left;
+	color: rgba(255, 87, 34, 0.71);
+}
+
+
+.rankStarMarked{
+	color: rgba(255, 87, 34, 0.71);	
+	outline: none !important;
+}
+
+#filter{
+	position: fixed;
+	width: 100%;
+	z-index: 100000;
+}
+
+#resultDetail{
+	position: fixed;
+	width: 100%;
+	z-index: 100000;
+	height: 100%;
+}
+
+.searchFilter{
+	height: calc(100% - 80px);
+	overflow-x: hidden;
+}
+
+.searchFilter md-tab-item{
+	padding: 7px 10px !important;
+	font-size: 11px;
+}
+
+.searchFilter md-tabs-canvas,md-pagination-wrapper{
+	height: 38px;
+}
+
+.searchFilter md-tabs{
+	margin:0px !important;
+	background-color: white;
+}
+
+.customBackdrop{
+	height: 100%;
+	width: 100%;
+	background-color: #0000004f;
+}
+
+.filterButtons{
+	background-color: white;
+}
+
+.md-tab{
+
+}
+
+.contentFilter p{
+	margin: 0px;
+	font-size: 12px;
+
+}
+
+.contentFilter .rankItem{
+	padding: 5px;
+	display: grid;
+}
+
+.filterContainer{
+	height: 100%;
+}
+
+.marginShadow{
+	margin: 0px 0px 13px 0px;
+}
+
+.filterOpen{
+	background-color: rgba(0,0,0,0.12);
+}
+
+.filterPriceOptions{
+	margin-top: 15px;
+	display: grid;
+}
+
+.filterPriceOptions md-checkbox{
+	font-size: 14px !important;
+}
+
+md-checkbox.md-checked .md-ink-ripple {
+	color: rgb(245, 0, 1) !important;
+}
+
+md-checkbox.md-checked .md-icon {
+	background-color: rgb(245, 0, 1) !important;
+}
+
+.sidenavResults{
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+
+.resultContainer{
+	/*height: 85px;*/
+	width: calc(100% - 34px);
+	border-bottom: 1px solid #80808038;
+	padding: 13px 20px 13px 21px;
+	cursor:pointer;
+	display: inline-block;
+}
+
+.resultTitle span{
+	color: #000;
+	font-size: 17px;
+	line-height: 16px;
+	padding-bottom: 2px;
+	white-space: normal;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	outline: 0;
+	vertical-align: baseline;
+	background: transparent;
+	list-style: none;
+	overflow: visible;
+}
+
+.resultValoration{
+	display: table-row;
+}
+
+.resultPrice{
+	margin: 1px 0px 2px 0px;
+	font-weight: 500;
+	font-size: 24px
+}
+
+.resultInfo{
+	width: calc(100% - 90px);
+	float: left;
+}
+.resultImg{
+	width: 90px;
+	float: right;
+	height: 87px;
+}
+
+.resultImg img{
+	width: 100%;
+	height: 100%;
+}
+
+/*fin buscador barra lateral izquierda*/
+
+
+
+
+
+
+
+

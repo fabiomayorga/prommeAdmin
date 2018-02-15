@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ng-app" ng-app="promeeApp">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<base href="/" />
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+
+	<title>Administración Promme - Gestión empresa</title>
+
+	<!-- Estilos CSS -->
+
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/fonts/fontAwsome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="components/angularMaterial/angularMaterial.css">
+	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+	
+
+	<!-- JQuery y MomentJS-->
+
+	<script src="components/jquery/jquery.js"></script>
+	<script src="components/moment/moment.js"></script>
+
+	<!-- Angular Material required Angular.js Libraries -->
+
+	<script src="components/angularjs/angularjs.js"></script>
+	<script src="components/angularjs/angular-animate.js"></script>
+	<script src="components/angularjs/angular-aria.js"></script>
+	<script src="components/angularjs/angular-messages.js"></script>
+	<script src="components/angularjs/angular-route.js"></script>
+	<script src="components/angularjs/ngStorage.js"></script>
+	<script src="components/angularjs/angular-sanitaze.js"></script>
+
+	<!-- Angular Material Library -->
+
+	<script type="text/javascript" src="components/angular-material/angular-material.js"></script>
+
+	<!--Angular modulo principal -->
+
+	<script  src="js/AngularJS/app.js"></script>
+
+	<!-- Modulos adicionales-->
+
+	<script src="js/componentesJS/md-data-table.min.js"></script>
+
+	<!--Slider double-->
+	<script src="components/angularjs-slider/angularjs-slider.js"></script>
+	<link rel="stylesheet" type="text/css" href="components/angularjs-slider/angularjs-slider.css">
+
+	<!-- Controladores -->
+
+	<script type="text/javascript" src="js/AngularJS/controllers/maps/map.js"></script>
+	<script type="text/javascript" src="js/AngularJS/controllers/searchNav/searchNav.js"></script>
+
+
+	<!-- factory -->
+
+	<script type="text/javascript" src="js/AngularJS/factories/access/accessFactory.js"></script>
+	<script type="text/javascript" src="js/AngularJS/factories/tools/toolsFactory.js"></script>
+	<script type="text/javascript" src="js/AngularJS/factories/results/resultsFactory.js"></script>
+	
+	<!-- trix Editor  -->
+
+	<link rel="components/trix/trix.css">
+	<script src="components/trix/trix.js"></script>
+	<script type="text/javascript" src="js/AngularJS/directives/angular-trix.js"></script> 
+
+	<link rel="stylesheet" type="text/css" href="css/web/promee.css">
+
+
+</head>
+
+<body ng-controller="mainController">
+	
+	<div layout="column" id="toast-container" ng-model="cuerpos"  layout-align="top center" ng-view="" class="vista">
+		
+	</div>
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd1xMYT1bt99qtFWQEzXiRBvORDWHgPtk" async defer></script>
